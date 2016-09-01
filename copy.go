@@ -259,6 +259,7 @@ func (ci *copyin) Close() (err error) {
 	}
 
 	<-ci.done
+	ci.cn.inCopy = false
 
 	if ci.isErrorSet() {
 		err = ci.err
