@@ -3,13 +3,10 @@ package pq
 import "testing"
 
 func TestIssue494(t *testing.T) {
-	db, err := openTestConn(t)
-	if err != nil {
-		t.Fatal(err)
-	}
+	db := openTestConn(t)
 	defer db.Close()
 
-	query := `CREATE TABLE t (i INT PRIMARY KEY)`
+	query := `CREATE TEMP TABLE t (i INT PRIMARY KEY)`
 	if _, err := db.Exec(query); err != nil {
 		t.Fatal(err)
 	}

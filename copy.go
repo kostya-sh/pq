@@ -13,6 +13,7 @@ var (
 	errBinaryCopyNotSupported     = errors.New("pq: only text format supported for COPY")
 	errCopyToNotSupported         = errors.New("pq: COPY TO is not supported")
 	errCopyNotSupportedOutsideTxn = errors.New("pq: COPY is only allowed inside a transaction")
+	errCopyInProgress             = errors.New("pq: COPY in progress")
 )
 
 // CopyIn creates a COPY FROM statement which can be prepared with
